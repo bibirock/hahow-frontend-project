@@ -1,3 +1,11 @@
+/*
+ * @Author: JoeChen
+ * @Date: 2025-12-23 15:25:53
+ * @LastEditors: JoeChen bibirock0104@gmail.com
+ * @LastEditTime: 2025-12-23 21:00:21
+ * @Description:
+ */
+
 import Image from "next/image";
 
 export default function Home() {
