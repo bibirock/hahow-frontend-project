@@ -1,0 +1,135 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "[typescriptreact]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "commit-message-editor.staticTemplate": [
+    "[feature]: 簡短描述",
+    "",
+    "Message body",
+    "",
+    "Message footer"
+  ],
+  "commit-message-editor.dynamicTemplate": [
+    "[{type}]{scope}: {description}",
+    "",
+    "{body}",
+    "",
+    "{breaking_change}{footer}"
+  ],
+  "commit-message-editor.tokens": [
+    {
+      "label": "Type",
+      "name": "type",
+      "type": "enum",
+      "options": [
+        {
+          "label": "---",
+          "value": ""
+        },
+        {
+          "label": "adjust",
+          "description": "調整程式碼"
+        },
+        {
+          "label": "build",
+          "description": "改變 build 工具"
+        },
+        {
+          "label": "ci",
+          "description": "與 CI 相關設定"
+        },
+        {
+          "label": "dependence",
+          "description": "第三方套件相關"
+        },
+        {
+          "label": "docs",
+          "description": "文檔改變"
+        },
+        {
+          "label": "experiment",
+          "description": "實驗或統計結果"
+        },
+        {
+          "label": "feature",
+          "description": "新功能"
+        },
+        {
+          "label": "file",
+          "description": "增加一些跟功能無關的檔案"
+        },
+        {
+          "label": "fix",
+          "description": "Bug 修復"
+        },
+        {
+          "label": "performance",
+          "description": "性能優化"
+        },
+        {
+          "label": "publish",
+          "description": "發布版本"
+        },
+        {
+          "label": "refactor",
+          "description": "功能重構（非修正錯誤或是新增新功能）"
+        },
+        {
+          "label": "revert"
+        },
+        {
+          "label": "test",
+          "description": "增加測試代碼"
+        }
+      ],
+      "description": "Type of changes"
+    },
+    {
+      "label": "Scope",
+      "name": "scope",
+      "description": "提交的類型可以在括號內給予作用範圍，以提供額外的脈絡資訊，例如：\"[feature](parser): 新增可頗析的陣列\".",
+      "type": "text",
+      "multiline": false,
+      "prefix": "(",
+      "suffix": ")"
+    },
+    {
+      "label": "簡短描述",
+      "name": "description",
+      "description": "主題行中的簡短描述.",
+      "type": "text",
+      "multiline": false
+    },
+    {
+      "label": "內文",
+      "name": "body",
+      "description": "選填的內文",
+      "type": "text",
+      "multiline": true,
+      "lines": 5,
+      "maxLines": 10
+    },
+    {
+      "label": "Breaking change",
+      "name": "breaking_change",
+      "type": "boolean",
+      "value": "BREAKING CHANGE: ",
+      "default": false
+    },
+    {
+      "label": "頁尾",
+      "name": "footer",
+      "description": "選填的頁尾",
+      "type": "text",
+      "multiline": true
+    }
+  ],
+  "cSpell.words": [
+    "Hahow",
+    "Retryable"
+  ],
+}
