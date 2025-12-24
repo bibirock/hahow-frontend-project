@@ -13,14 +13,17 @@ import styled from "styled-components";
 // types
 import { IHeroesItem } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
 
-const StyledCard = styled(Link)`
+const StyledCard = styled(Link)<{ $isActive?: boolean }>`
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: ${(props) => (props.$isActive ? "3px solid #ff6600" : "1px solid black")};
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  box-shadow: ${(props) =>
+    props.$isActive
+      ? "0 4px 6px -1px rgba(255, 102, 0, 0.3)"
+      : "0 1px 3px 0 rgba(0, 0, 0, 0.1)"};
+  transition: all 0.3s ease;
 
   &:hover {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -52,11 +55,12 @@ const HeroName = styled.h2`
 
 interface IHeroCardProps {
   hero: IHeroesItem;
+  isActive?: boolean;
 }
 
-export default function HeroCard({ hero }: IHeroCardProps) {
+export default function HeroCard({ hero, isActive = false }: IHeroCardProps) {
   return (
-    <StyledCard href={`/heroes/${hero.id}`}>
+    <StyledCard href={`/heroes/${hero.id}`} $isActive={isActive}>
       <ImageContainer>
         <HeroImage src={hero.image} alt={hero.name} />
       </ImageContainer>
