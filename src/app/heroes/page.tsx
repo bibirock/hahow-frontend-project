@@ -2,31 +2,12 @@
  * @Author: JoeChen
  * @Date: 2025-12-24 17:23:11
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 17:38:56
- * @Description:
+ * @LastEditTime: 2025-12-24
+ * @Description: Heroes list page - displays hero list in layout
  */
 
-// components
-import PageView from "@/components/page/heroes/PageView";
-
-// api
-import { HahowApi } from "@/lib/api-server/endpoints";
-
-// types
-import { IHeroesItem } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
-
-export interface IPageViewProps {
-  heroes: IHeroesItem[];
-}
-
-export default async function HeroesPage() {
-  const res = await HahowApi.Heroes.ListHeroesServer();
-
-  const heroesData = res.data || [];
-
-  const props: IPageViewProps = {
-    heroes: heroesData,
-  };
-
-  return <PageView data={props} />;
+export default function HeroesPage() {
+  // Hero list is now rendered in layout.tsx
+  // This page is intentionally empty as it only shows the hero list
+  return null;
 }
