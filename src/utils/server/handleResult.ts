@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-23 22:01:22
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-23 23:04:25
+ * @LastEditTime: 2025-12-24 16:34:23
  * @Description:
  */
 
@@ -21,7 +21,7 @@ export const handleAxiosError = (e: AxiosError<any>): IBaseResponse<null> => {
   return {
     result: null,
     error: {
-      code: String(status),
+      code: status.toString(),
       message: e.response?.data?.message || statusText,
     },
   };
@@ -60,7 +60,7 @@ export const handleSuccess = <T>(result: T): IBaseResponse<T> => {
   };
 };
 
-export const handleError = (e: unknown): NextResponse => {
+export const handleError = (e: unknown): NextResponse<IBaseResponse<null>> => {
   if (e instanceof AxiosError) {
     const axiosError = e as AxiosError;
     const status = axiosError.response?.status;
