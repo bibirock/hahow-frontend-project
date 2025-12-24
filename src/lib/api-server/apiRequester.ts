@@ -3,7 +3,7 @@
  * @Author: Joe.Chen
  * @Date: 2025-12-23 21:39:12
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-23 23:03:27
+ * @LastEditTime: 2025-12-24 16:59:42
  * @Description:
  */
 
@@ -11,7 +11,7 @@
 import { AxiosRequestConfig } from "axios";
 import { hahowAPIAxiosInstance } from "./axiosInstance";
 
-type ApiMethod = "get" | "post" | "put" | "delete";
+type ApiMethod = "get" | "post" | "put" | "delete" | "patch";
 
 interface ApiCallOptions extends Omit<AxiosRequestConfig, "method" | "url"> {
   method: ApiMethod;

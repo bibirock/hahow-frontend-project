@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-23 22:01:22
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-23 23:04:25
+ * @LastEditTime: 2025-12-24 16:56:42
  * @Description:
  */
 
@@ -11,17 +11,19 @@ import { AxiosError } from "axios";
 import { NextResponse } from "next/server";
 
 // types
-import { IBaseResponse } from "@/lib/api-types/common";
+import { IBaseResponse, IBaseResponseWithError } from "@/lib/api-types/common";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const handleAxiosError = (e: AxiosError<any>): IBaseResponse<null> => {
+export const handleAxiosError = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  e: AxiosError<any>
+): IBaseResponseWithError => {
   const status = e.response?.status || 500;
   const statusText = e.response?.statusText || "Internal Server Error";
 
   return {
     result: null,
     error: {
-      code: String(status),
+      code: status.toString(),
       message: e.response?.data?.message || statusText,
     },
   };
@@ -30,20 +32,7 @@ export const handleAxiosError = (e: AxiosError<any>): IBaseResponse<null> => {
 export const createErrorResponse = (
   code: string = "400",
   message: string = "Request failed"
-): IBaseResponse<null> => {
-  return {
-    result: null,
-    error: {
-      code,
-      message,
-    },
-  };
-};
-
-export const createErrorResponseList = <T>(
-  code: string = "400",
-  message: string = "Request failed"
-): IBaseResponse<{ count: number; data: T[] }> => {
+): IBaseResponseWithError => {
   return {
     result: null,
     error: {
@@ -60,7 +49,9 @@ export const handleSuccess = <T>(result: T): IBaseResponse<T> => {
   };
 };
 
-export const handleError = (e: unknown): NextResponse => {
+export const handleError = (
+  e: unknown
+): NextResponse<IBaseResponseWithError> => {
   if (e instanceof AxiosError) {
     const axiosError = e as AxiosError;
     const status = axiosError.response?.status;
