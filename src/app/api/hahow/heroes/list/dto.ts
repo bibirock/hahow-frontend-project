@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-23 21:58:31
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-23 21:58:40
+ * @LastEditTime: 2025-12-24 17:09:42
  * @Description:
  */
 
@@ -14,4 +14,4 @@ export interface IHeroesItem {
   image: string;
 }
 
-export type TResponse = IBaseResponse<IBaseListResult<IHeroesItem>>;
+export type TGetResponse = IBaseResponse<IBaseListResult<IHeroesItem>>;
