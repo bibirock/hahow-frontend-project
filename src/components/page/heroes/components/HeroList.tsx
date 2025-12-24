@@ -36,9 +36,10 @@ const CardWrapper = styled.div`
 
 interface IHeroListProps {
   heroes: IHeroesItem[];
+  activeHeroId?: string | null;
 }
 
-export default function HeroList({ heroes }: IHeroListProps) {
+export default function HeroList({ heroes, activeHeroId }: IHeroListProps) {
   if (heroes.length === 0) {
     return (
       <div style={{ textAlign: "center", padding: "2rem", color: "#6b7280" }}>
@@ -51,7 +52,7 @@ export default function HeroList({ heroes }: IHeroListProps) {
     <ListContainer>
       {heroes.map((hero) => (
         <CardWrapper key={hero.id}>
-          <HeroCard hero={hero} />
+          <HeroCard hero={hero} isActive={activeHeroId === hero.id} />
         </CardWrapper>
       ))}
     </ListContainer>
