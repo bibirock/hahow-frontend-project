@@ -21,20 +21,16 @@ interface ApiCallOptions extends Omit<AxiosRequestConfig, "method" | "url"> {
 }
 
 async function ApiRequester<T>(options: ApiCallOptions): Promise<T> {
-  try {
-    const { method, url, params, data, ...config } = options;
-    const response = await hahowAPIAxiosInstance({
-      method,
-      url,
-      params,
-      data,
-      ...config,
-    });
+  const { method, url, params, data, ...config } = options;
+  const response = await hahowAPIAxiosInstance({
+    method,
+    url,
+    params,
+    data,
+    ...config,
+  });
 
-    return response as T;
-  } catch (e: any) {
-    return e.response as T;
-  }
+  return response as T;
 }
 
 export default ApiRequester;

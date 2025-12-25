@@ -49,6 +49,10 @@ export const handleSuccess = <T>(result: T): IBaseResponse<T> => {
   };
 };
 
+/**
+ * 處理 API route 錯誤並轉換為統一的 NextResponse 格式
+ * 注意：Axios 錯誤已經在 interceptor 中記錄過 log，此處只做格式轉換
+ */
 export const handleError = (
   e: unknown
 ): NextResponse<IBaseResponseWithError> => {
@@ -56,14 +60,18 @@ export const handleError = (
     const axiosError = e as AxiosError;
     const status = axiosError.response?.status;
 
-    // 根據 HTTP 狀態碼設定錯誤訊息
+    // Axios 錯誤已在 interceptor 記錄，此處只轉換格式
     const errorResponse = handleAxiosError(axiosError);
 
     return NextResponse.json(errorResponse, { status: status || 500 });
   }
 
-  // 處理非 Axios 錯誤，統一回傳 500 錯誤，防止洩漏內部資訊
+  // 處理非 Axios 錯誤（例如程式邏輯錯誤）
+  // 這類錯誤不會經過 interceptor，需要在此記錄
   const errorMsg = e instanceof Error ? e.message : "Unknown error occurred";
+  console.error(`Non-Axios error in API route: ${errorMsg}`, e);
+
+  // 統一回傳 500 錯誤，防止洩漏內部資訊
   return NextResponse.json(createErrorResponse("500", errorMsg), {
     status: 500,
   });
