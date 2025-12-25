@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 18:35:48
+ * @LastEditTime: 2025-12-25 15:41:33
  * @Description: Hero Card component
  */
 
@@ -16,7 +16,8 @@ import { IHeroesItem } from "@/lib/api-server/endpoints/hahow-api/heroes/listHer
 const StyledCard = styled(Link)<{ $isActive?: boolean }>`
   display: flex;
   flex-direction: column;
-  border: ${(props) => (props.$isActive ? "3px solid #ff6600" : "1px solid black")};
+  border: ${(props) =>
+    props.$isActive ? "3px solid #ff6600" : "1px solid black"};
   border-radius: 8px;
   overflow: hidden;
   box-shadow: ${(props) =>
@@ -59,8 +60,19 @@ interface IHeroCardProps {
 }
 
 export default function HeroCard({ hero, isActive = false }: IHeroCardProps) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // 如果點擊的是已選中的英雄，阻止導航
+    if (isActive) {
+      e.preventDefault();
+    }
+  };
+
   return (
-    <StyledCard href={`/heroes/${hero.id}`} $isActive={isActive}>
+    <StyledCard
+      href={`/heroes/${hero.id}`}
+      $isActive={isActive}
+      onClick={handleClick}
+    >
       <ImageContainer>
         <HeroImage src={hero.image} alt={hero.name} />
       </ImageContainer>

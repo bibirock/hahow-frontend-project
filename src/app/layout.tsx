@@ -2,17 +2,26 @@
  * @Author: JoeChen
  * @Date: 2025-12-24 17:48:21
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 18:33:29
+ * @LastEditTime: 2025-12-25 15:08:56
  * @Description:
  */
-import type { Metadata } from "next";
-import "./globals.css";
-import StyledComponentsRegistry from "@/lib/registry";
+
+// modules
 import { ToastContainer } from "react-toastify";
+import StyledComponentsRegistry from "@/lib/registry";
+
+// types
+import type { Metadata } from "next";
+
+// styles
+import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
-  title: "Hahow Heroes",
+  title: {
+    default: "Hahow Heroes",
+    template: "%s - Hahow Heroes",
+  },
   description: "陳智文的面試專案 - Hahow Heroes",
 };
 

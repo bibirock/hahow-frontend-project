@@ -2,12 +2,12 @@
  * @Author: JoeChen
  * @Date: 2025-12-23 21:14:27
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 16:50:07
+ * @LastEditTime: 2025-12-25 14:30:45
  * @Description: 定義通用的 API 回應型別
  */
 
 export interface IErrorType {
-  code?: string;
+  code?: number;
   message?: string;
 }
 

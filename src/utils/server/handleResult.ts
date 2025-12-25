@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-23 22:01:22
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 16:56:42
+ * @LastEditTime: 2025-12-25 14:33:03
  * @Description:
  */
 
@@ -23,14 +23,14 @@ export const handleAxiosError = (
   return {
     result: null,
     error: {
-      code: status.toString(),
+      code: status,
       message: e.response?.data?.message || statusText,
     },
   };
 };
 
 export const createErrorResponse = (
-  code: string = "400",
+  code: number = 400,
   message: string = "Request failed"
 ): IBaseResponseWithError => {
   return {
@@ -72,7 +72,7 @@ export const handleError = (
   console.error(`Non-Axios error in API route: ${errorMsg}`, e);
 
   // 統一回傳 500 錯誤，防止洩漏內部資訊
-  return NextResponse.json(createErrorResponse("500", errorMsg), {
+  return NextResponse.json(createErrorResponse(500, errorMsg), {
     status: 500,
   });
 };

@@ -2,15 +2,25 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 19:02:20
+ * @LastEditTime: 2025-12-25 14:37:54
  * @Description: Hero profile page with server-side data fetching
  */
 
+// modules
+import { Metadata, ResolvingMetadata } from "next";
+import { cache } from "react";
+
 // api
 import { HahowApi } from "@/lib/api-server/endpoints";
-
-// components
 import PageView from "@/components/page/heroes/profile/PageView";
+
+// 使用快取保留重複 id 會取用快取的結果，減少重複請求
+const getHeroDetail = cache((heroId: string) =>
+  HahowApi.Heroes.GetHeroDetailServer(heroId)
+);
+const getHeroProfile = cache((heroId: string) =>
+  HahowApi.Heroes.GetHeroProfileServer(heroId)
+);
 
 interface IHeroProfilePageProps {
   params: Promise<{
@@ -18,36 +28,66 @@ interface IHeroProfilePageProps {
   }>;
 }
 
+export async function generateMetadata(
+  { params }: IHeroProfilePageProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { heroId } = await params;
+
+  try {
+    const heroDetailRes = await getHeroDetail(heroId);
+    const heroDetail = heroDetailRes.data;
+
+    if (!heroDetail || !heroDetail.name) {
+      return {
+        title: "Hero not found",
+        description: "陳智文的面試專案 - Hahow Heroes",
+      };
+    }
+
+    return {
+      title: `${heroDetail.name}'s profile`,
+      description: `View ${heroDetail.name}'s hero profile and abilities - 陳智文的面試專案`,
+    };
+  } catch {
+    const parentMetadata = await parent;
+    return {
+      title: parentMetadata.title?.absolute || "Hahow Heroes",
+      description: "陳智文的面試專案 - Hahow Heroes",
+    };
+  }
+}
+
 export default async function HeroProfilePage({
   params,
 }: IHeroProfilePageProps) {
   const { heroId } = await params;
 
+  let data;
+
   try {
-    // Fetch both hero details and profile in parallel
-    const [heroDetailRes, profileRes] = await Promise.all([
-      HahowApi.Heroes.GetHeroDetailServer(heroId),
-      HahowApi.Heroes.GetHeroProfileServer(heroId),
-    ]);
-
-    const heroDetail = heroDetailRes.data;
-    const profile = profileRes.data;
-
-    if (!heroDetail || !profile) {
-      return (
-        <div style={{ textAlign: "center", padding: "2rem" }}>
-          Hero not found
-        </div>
-      );
-    }
-
-    return <PageView heroId={heroId} hero={heroDetail} profile={profile} />;
-  } catch (error) {
+    data = await Promise.all([getHeroDetail(heroId), getHeroProfile(heroId)]);
+  } catch (error: unknown) {
     console.error("Error fetching hero profile:", error);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const errorMessage = (error as any)?.message || "Unknown error occurred";
     return (
       <div style={{ textAlign: "center", padding: "2rem", color: "#ef4444" }}>
-        Failed to load hero profile
+        <h3>Failed to load hero profile</h3>
+        <p>{errorMessage}</p>
       </div>
     );
   }
+
+  const [heroDetailRes, profileRes] = data;
+  const heroDetail = heroDetailRes.data;
+  const profile = profileRes.data;
+
+  if (!heroDetail || !profile) {
+    return (
+      <div style={{ textAlign: "center", padding: "2rem" }}>Hero not found</div>
+    );
+  }
+
+  return <PageView heroId={heroId} hero={heroDetail} profile={profile} />;
 }

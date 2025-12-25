@@ -21,9 +21,7 @@ export default async function getHeroProfile(
 
   const RequestNextAPIUrl = `/api/hahow/heroes/${heroId}/profile`;
 
-  const response = await fetch(RequestNextAPIUrl, {
-    body: JSON.stringify({ heroId }),
-  });
+  const response = await fetch(RequestNextAPIUrl);
 
   if (!response.ok) {
     return createErrorResponse();

@@ -3,7 +3,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 16:59:00
+ * @LastEditTime: 2025-12-25 15:14:01
  * @Description: Next.js API route for hero profile (GET and PATCH)
  */
 
@@ -18,11 +18,14 @@ import { handleError, handleSuccess } from "@/utils/server/handleResult";
 import { IPatchRequestDto, TGetResponse, TPatchResponse } from "./dto";
 import { IBaseResponseWithError } from "@/lib/api-types/common";
 
-export async function GET({
-  params,
-}: {
-  params: Promise<{ heroId: string }>;
-}): Promise<NextResponse<TGetResponse | IBaseResponseWithError>> {
+export async function GET(
+  _request: NextRequest,
+  {
+    params,
+  }: {
+    params: Promise<{ heroId: string }>;
+  }
+): Promise<NextResponse<TGetResponse | IBaseResponseWithError>> {
   try {
     const { heroId } = await params;
 
