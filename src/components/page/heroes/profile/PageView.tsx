@@ -122,17 +122,6 @@ export default function HeroProfileView({
   };
 
   const handleSave = async () => {
-    if (currentTotal !== initialTotal) {
-      toast.error(`能力值總和必須維持 ${initialTotal}，目前為 ${currentTotal}`);
-      return;
-    }
-
-    const hasNegative = Object.values(abilities).some((val) => val < 0);
-    if (hasNegative) {
-      toast.error("能力值不能小於 0");
-      return;
-    }
-
     setIsSaving(true);
 
     try {
@@ -183,8 +172,10 @@ export default function HeroProfileView({
         <PointsDisplay remainingPoints={remainingPoints} />
         <SaveButton
           onClick={handleSave}
-          disabled={isSaving || !hasChanges}
+          disabled={isSaving || !hasChanges || remainingPoints > 0}
           isSaving={isSaving}
+          hasChanges={hasChanges}
+          remainingPoints={remainingPoints}
         />
       </RightSection>
     </ProfileContainer>

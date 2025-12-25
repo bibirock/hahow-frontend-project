@@ -10,6 +10,17 @@ import styled from "styled-components";
 
 // #region Style
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    align-items: stretch;
+  }
+`;
+
 const PointsSection = styled.div`
   display: flex;
   align-items: center;
@@ -26,6 +37,12 @@ const PointsValue = styled.span`
   font-weight: 600;
 `;
 
+const WarningMessage = styled.p`
+  font-size: 0.875rem;
+  color: #dc2626;
+  margin: 0;
+`;
+
 // #endregion
 
 interface IPointsDisplayProps {
@@ -36,9 +53,14 @@ export default function PointsDisplay({
   remainingPoints,
 }: IPointsDisplayProps) {
   return (
-    <PointsSection>
-      <PointsLabel>剩餘點數:</PointsLabel>
-      <PointsValue>{remainingPoints}</PointsValue>
-    </PointsSection>
+    <Container>
+      <PointsSection>
+        <PointsLabel>剩餘點數:</PointsLabel>
+        <PointsValue>{remainingPoints}</PointsValue>
+      </PointsSection>
+      {remainingPoints > 0 && (
+        <WarningMessage>必須使用完剩餘點數才能儲存</WarningMessage>
+      )}
+    </Container>
   );
 }
