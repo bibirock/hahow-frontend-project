@@ -18,6 +18,34 @@ interface IHeroProfilePageProps {
   }>;
 }
 
+export async function generateMetadata({
+  params,
+}: IHeroProfilePageProps): Promise<Metadata> {
+  const { heroId } = await params;
+
+  try {
+    const heroDetailRes = await getHeroDetail(heroId);
+    const heroDetail = heroDetailRes.data;
+
+    if (!heroDetail || !heroDetail.name) {
+      return {
+        title: "Hero not found",
+        description: "陳智文的面試專案 - Hahow Heroes",
+      };
+    }
+
+    return {
+      title: `${heroDetail.name}'s profile`,
+      description: `View ${heroDetail.name}'s hero profile and abilities - 陳智文的面試專案`,
+    };
+  } catch {
+    return {
+      title: "Loading...",
+      description: "陳智文的面試專案 - Hahow Heroes",
+    };
+  }
+}
+
 export default async function HeroProfilePage({
   params,
 }: IHeroProfilePageProps) {

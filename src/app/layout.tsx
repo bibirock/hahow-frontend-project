@@ -12,7 +12,10 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
-  title: "Hahow Heroes",
+  title: {
+    default: "Hahow Heroes",
+    template: "%s - Hahow Heroes",
+  },
   description: "陳智文的面試專案 - Hahow Heroes",
 };
 
