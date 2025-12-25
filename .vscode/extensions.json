@@ -2,5 +2,8 @@
   "recommendations": [
     "OBKoro1.korofileheader",
     "streetsidesoftware.code-spell-checker",
+    "henrynguyen5-vsc.vsc-nvm",
+    "dbaeumer.vscode-eslint",
+    "davidanson.vscode-markdownlint",
   ]
 }
