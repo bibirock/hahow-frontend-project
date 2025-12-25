@@ -15,7 +15,7 @@ import { HahowApi } from "@/lib/api-server/endpoints";
 import { handleError, handleSuccess } from "@/utils/server/handleResult";
 
 // types
-import { IPatchRequestDto, TGetResponse, TPatchResponse } from "./dto";
+import { IRequestDto, TGetResponse, TPatchResponse } from "./dto";
 import { IBaseResponseWithError } from "@/lib/api-types/common";
 
 export async function GET(
@@ -43,7 +43,7 @@ export async function PATCH(
 ): Promise<NextResponse<TPatchResponse | IBaseResponseWithError>> {
   try {
     const { heroId } = await params;
-    const requestData: IPatchRequestDto = await request.json();
+    const requestData: IRequestDto = await request.json();
 
     const response = await HahowApi.Heroes.PatchHeroProfileServer(
       heroId,

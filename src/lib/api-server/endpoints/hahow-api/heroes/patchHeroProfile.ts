@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 17:01:42
+ * @LastEditTime: 2025-12-25 17:08:20
  * @Description: Server-side endpoint to patch hero profile
  */
 
@@ -10,7 +10,7 @@
 import { AxiosResponse } from "axios";
 import ApiRequester from "@/lib/api-server/apiRequester";
 
-export interface IPatchProfilePayload {
+export interface IRequestDto {
   str: number;
   int: number;
   agi: number;
@@ -21,7 +21,7 @@ export type TResponse = AxiosResponse<string>;
 
 export default async function patchHeroProfile(
   heroId: string,
-  payload: IPatchProfilePayload
+  payload: IRequestDto
 ): Promise<TResponse> {
   const RequestHahowAPIUrl = `/heroes/${heroId}/profile`;
 

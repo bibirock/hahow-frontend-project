@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 18:36:02
+ * @LastEditTime: 2025-12-25 17:13:44
  * @Description: Hero List component
  */
 
@@ -13,7 +13,7 @@ import styled from "styled-components";
 import HeroCard from "./HeroCard";
 
 // types
-import { IHeroesItem } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
+import { IResponseDto } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
 
 // #region Style
 
@@ -39,7 +39,7 @@ const CardWrapper = styled.div`
 // #endregion
 
 interface IHeroListProps {
-  heroes: IHeroesItem[];
+  heroes: IResponseDto[];
   activeHeroId?: string | null;
 }
 

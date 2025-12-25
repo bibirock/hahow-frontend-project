@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24
+ * @LastEditTime: 2025-12-25 17:11:18
  * @Description: Heroes layout component with persistent hero list
  */
 
@@ -16,7 +16,7 @@ import { usePathname } from "next/navigation";
 import HeroList from "./components/HeroList";
 
 // types
-import { IHeroesItem } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
+import { IResponseDto } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
 
 // #region Style
 
@@ -38,14 +38,14 @@ const ContentSection = styled.div`
 // #endregion
 
 interface IHeroesLayoutProps {
-  heroes: IHeroesItem[];
+  heroes: IResponseDto[];
   children: React.ReactNode;
 }
 
 export default function HeroesLayout({ heroes, children }: IHeroesLayoutProps) {
   const pathname = usePathname();
 
-  // Extract heroId from pathname like /heroes/123
+  // 提取當前活躍的 heroId
   const heroIdMatch = pathname.match(/^\/heroes\/([^/]+)$/);
   const activeHeroId = heroIdMatch ? heroIdMatch[1] : null;
 
