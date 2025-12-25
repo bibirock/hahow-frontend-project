@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 23:13:11
+ * @LastEditTime: 2025-12-25 23:30:27
  * @Description: Hero Card component
  */
 
@@ -28,6 +28,7 @@ const StyledCard = styled(Link)<{ $isActive?: boolean }>`
       : "0 1px 3px 0 rgba(255, 255, 255, 0.1)"};
   transform: ${(props) => (props.$isActive ? "scale(1.03)" : "scale(1)")};
   transition: all 0.3s ease;
+  text-align: center;
 
   &:hover {
     box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.2);
