@@ -70,14 +70,17 @@ interface IHeroProfileViewProps {
   profile: HeroProfile;
 }
 
-type AbilityKey = "str" | "int" | "agi" | "luk";
+// 從 DTO 動態推導能力值的 key，當 API 新增欄位時會自動更新
+type AbilityKey = keyof HeroProfile;
 
-// 製作能力值對應標籤 mapping
-const ABILITY_LABELS: Record<AbilityKey, string> = {
-  str: "STR",
-  int: "INT",
-  agi: "AGI",
-  luk: "LUK",
+// 將能力值 key 轉換為顯示標籤（自動轉大寫）
+const getAbilityLabel = (key: AbilityKey): string => {
+  return key.toUpperCase();
+};
+
+// 動態計算能力值總和
+const calculateTotal = (profile: HeroProfile): number => {
+  return Object.values(profile).reduce((sum, val) => sum + val, 0);
 };
 
 export default function HeroProfileView({
@@ -88,26 +91,19 @@ export default function HeroProfileView({
   const [abilities, setAbilities] = useState<HeroProfile>(profile);
   const [isSaving, setIsSaving] = useState(false);
 
-  // 初始化能力值總和
-  const initialTotal =
-    initialProfile.str +
-    initialProfile.int +
-    initialProfile.agi +
-    initialProfile.luk;
+  // 初始化能力值總和（動態計算）
+  const initialTotal = calculateTotal(initialProfile);
 
-  // 計算目前能力值總和
-  const currentTotal =
-    abilities.str + abilities.int + abilities.agi + abilities.luk;
+  // 計算目前能力值總和（動態計算）
+  const currentTotal = calculateTotal(abilities);
 
   // 計算剩餘點數
   const remainingPoints = initialTotal - currentTotal;
 
-  // 檢查能力值是否有變動
-  const hasChanges =
-    abilities.str !== initialProfile.str ||
-    abilities.int !== initialProfile.int ||
-    abilities.agi !== initialProfile.agi ||
-    abilities.luk !== initialProfile.luk;
+  // 檢查能力值是否有變動（動態比較）
+  const hasChanges = (Object.keys(abilities) as AbilityKey[]).some(
+    (key) => abilities[key] !== initialProfile[key]
+  );
 
   const handleIncrement = (ability: AbilityKey) => {
     setAbilities((prev) => ({
@@ -170,10 +166,10 @@ export default function HeroProfileView({
   return (
     <ProfileContainer>
       <LeftSection>
-        {(Object.keys(ABILITY_LABELS) as AbilityKey[]).map((key) => (
+        {(Object.keys(abilities) as AbilityKey[]).map((key) => (
           <AbilityControl
             key={key}
-            label={ABILITY_LABELS[key]}
+            label={getAbilityLabel(key)}
             value={abilities[key]}
             onIncrement={() => handleIncrement(key)}
             onDecrement={() => handleDecrement(key)}
