@@ -2,12 +2,11 @@
  * @Author: JoeChen
  * @Date: 2025-12-24 17:23:11
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24
- * @Description: Heroes list page - displays hero list in layout
+ * @LastEditTime: 2025-12-25 12:19:21
+ * @Description:
  */
 
 export default function HeroesPage() {
-  // Hero list is now rendered in layout.tsx
-  // This page is intentionally empty as it only shows the hero list
+  // 列表由 layout 處理，這裡回傳 null 即可
   return null;
 }
