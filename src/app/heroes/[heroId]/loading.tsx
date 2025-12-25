@@ -16,9 +16,9 @@ const Container = styled.div`
   max-width: 872px;
   margin: 0 auto;
   padding: 2.5rem;
-  border: 2px solid #e5e7eb;
+  border: 2px solid white;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: #2d2d2d;
   display: flex;
   gap: 3rem;
 
@@ -52,7 +52,7 @@ const SkeletonPulse = styled.div`
   display: block;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+  background: linear-gradient(to right, #3d3d3d 8%, #4d4d4d 18%, #3d3d3d 33%);
   background-size: 800px 104px;
   animation: ${shimmer} 1.2s linear infinite forwards;
 `;
@@ -62,7 +62,7 @@ const SkeletonRow = styled.div`
   width: 100%;
   border-radius: 4px;
   overflow: hidden;
-  background-color: #f6f7f8;
+  background-color: #3d3d3d;
 `;
 
 const SkeletonPoints = styled.div`
@@ -70,7 +70,7 @@ const SkeletonPoints = styled.div`
   width: 100%;
   border-radius: 4px;
   overflow: hidden;
-  background-color: #f6f7f8;
+  background-color: #3d3d3d;
 `;
 
 const SkeletonButton = styled.div`
@@ -78,7 +78,7 @@ const SkeletonButton = styled.div`
   width: 100%;
   border-radius: 4px;
   overflow: hidden;
-  background-color: #f6f7f8;
+  background-color: #3d3d3d;
 `;
 
 // #endregion

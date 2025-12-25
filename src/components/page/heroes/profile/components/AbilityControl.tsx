@@ -25,6 +25,7 @@ const AbilityRow = styled.div`
 const AbilityLabel = styled.span`
   font-size: 1.125rem;
   min-width: 60px;
+  color: white;
 `;
 
 const AbilityControls = styled.div`
@@ -36,15 +37,16 @@ const AbilityControls = styled.div`
 const ControlButton = styled.button`
   width: 50px;
   height: 50px;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: #2d2d2d;
+  color: white;
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover:not(:disabled) {
-    background-color: #f3f4f6;
+    background-color: #3d3d3d;
   }
 
   &:disabled {
@@ -53,7 +55,7 @@ const ControlButton = styled.button`
   }
 
   &:active:not(:disabled) {
-    background-color: #e5e7eb;
+    background-color: #4d4d4d;
   }
 `;
 
@@ -62,6 +64,7 @@ const AbilityValue = styled.span`
   font-weight: 500;
   min-width: 30px;
   text-align: center;
+  color: white;
 `;
 
 // #endregion

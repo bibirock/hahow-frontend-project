@@ -30,11 +30,13 @@ const PointsSection = styled.div`
 const PointsLabel = styled.span`
   font-size: 1rem;
   font-weight: 500;
+  color: white;
 `;
 
 const PointsValue = styled.span`
   font-size: 1.25rem;
   font-weight: 600;
+  color: white;
 `;
 
 const WarningMessage = styled.p`

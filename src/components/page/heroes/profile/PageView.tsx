@@ -31,9 +31,10 @@ const ProfileContainer = styled.div`
   max-width: 872px;
   margin: 0 auto;
   padding: 2.5rem;
-  border: 2px solid #333;
+  border: 2px solid white;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: #2d2d2d;
+  color: white;
   display: flex;
   gap: 3rem;
 

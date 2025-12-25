@@ -25,15 +25,15 @@ const StyledSaveButton = styled.button`
   padding: 0.875rem 3rem;
   font-size: 1rem;
   font-weight: 500;
-  color: #333;
-  background-color: #e5e7eb;
-  border: 2px solid #333;
+  color: white;
+  background-color: #2d2d2d;
+  border: 2px solid white;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover:not(:disabled) {
-    background-color: #d1d5db;
+    background-color: #3d3d3d;
   }
 
   &:disabled {
@@ -42,13 +42,13 @@ const StyledSaveButton = styled.button`
   }
 
   &:active:not(:disabled) {
-    background-color: #9ca3af;
+    background-color: #4d4d4d;
   }
 `;
 
 const HintMessage = styled.p`
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #9ca3af;
   margin: 0;
   text-align: right;
 

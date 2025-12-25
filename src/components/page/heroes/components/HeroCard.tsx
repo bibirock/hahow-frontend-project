@@ -19,18 +19,18 @@ const StyledCard = styled(Link)<{ $isActive?: boolean }>`
   display: flex;
   flex-direction: column;
   border: ${(props) =>
-    props.$isActive ? "3px solid #ff6600" : "1px solid black"};
+    props.$isActive ? "3px solid #ff6600" : "1px solid white"};
   border-radius: 8px;
   overflow: hidden;
   box-shadow: ${(props) =>
     props.$isActive
       ? "0 4px 6px -1px rgba(255, 102, 0, 0.3)"
-      : "0 1px 3px 0 rgba(0, 0, 0, 0.1)"};
+      : "0 1px 3px 0 rgba(255, 255, 255, 0.1)"};
   transform: ${(props) => (props.$isActive ? "scale(1.03)" : "scale(1)")};
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.2);
   }
 `;
 
@@ -55,6 +55,7 @@ const HeroName = styled.h2`
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
+  color: white;
 `;
 
 // #endregion
