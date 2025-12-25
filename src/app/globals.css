@@ -1,1 +1,49 @@
 @import "tailwindcss";
+
+:root {
+  /* 基礎色彩 */
+  --color-base-white: #ffffff;
+  --color-base-black: #000000;
+
+  /* 灰階色系 */
+  --color-gray-900: #2d2d2d;
+  --color-gray-800: #3d3d3d;
+  --color-gray-700: #4d4d4d;
+  --color-gray-500: #6b7280;
+  --color-gray-400: #9ca3af;
+
+  /* 品牌色系 */
+  --color-brand-primary: #ff6600;
+  --color-brand-primary-shadow: rgba(255, 102, 0, 0.3);
+
+  /* 語義化色彩 */
+  --color-semantic-error: #ef4444;
+  --color-semantic-warning: #ff6600;
+  --color-semantic-warning-text: orange;
+
+  /* 陰影色系 */
+  --color-shadow-light: rgba(255, 255, 255, 0.1);
+  --color-shadow-medium: rgba(255, 255, 255, 0.2);
+  --color-shadow-primary: rgba(255, 102, 0, 0.3);
+
+  /* 文字色系 */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #6b7280;
+  --color-text-tertiary: #9ca3af;
+  --color-text-error: #ef4444;
+  --color-text-warning: orange;
+
+  /* 背景色系 */
+  --color-background-primary: #2d2d2d;
+  --color-background-hover: #3d3d3d;
+  --color-background-active: #4d4d4d;
+
+  /* 邊框色系 */
+  --color-border-primary: #ffffff;
+  --color-border-selected: #ff6600;
+}
+
+body {
+  background-color: var(--color-background-primary);
+  color: var(--color-text-primary);
+}

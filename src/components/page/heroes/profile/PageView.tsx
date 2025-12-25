@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 17:14:32
+ * @LastEditTime: 2025-12-25 23:24:03
  * @Description: Hero profile view component with ability controls
  */
 
@@ -25,15 +25,19 @@ import { IResponseDto as HeroDetail } from "@/lib/api-server/endpoints/hahow-api
 // api
 import { NextHahowApi } from "@/lib/api-client/endpoints";
 
+// design tokens
+import { colors } from "@/styles/tokens";
+
 // #region Style
 
 const ProfileContainer = styled.div`
   max-width: 872px;
   margin: 0 auto;
   padding: 2.5rem;
-  border: 2px solid #333;
-  border-radius: 4px;
-  background-color: #fff;
+  border: 2px solid ${colors.border.primary};
+  border-radius: 8px;
+  background-color: ${colors.background.primary};
+  color: ${colors.text.primary};
   display: flex;
   gap: 3rem;
 
@@ -122,17 +126,6 @@ export default function HeroProfileView({
   };
 
   const handleSave = async () => {
-    if (currentTotal !== initialTotal) {
-      toast.error(`能力值總和必須維持 ${initialTotal}，目前為 ${currentTotal}`);
-      return;
-    }
-
-    const hasNegative = Object.values(abilities).some((val) => val < 0);
-    if (hasNegative) {
-      toast.error("能力值不能小於 0");
-      return;
-    }
-
     setIsSaving(true);
 
     try {
@@ -180,11 +173,13 @@ export default function HeroProfileView({
       </LeftSection>
 
       <RightSection>
-        <PointsDisplay remainingPoints={remainingPoints} />
+        <PointsDisplay remainingPoints={remainingPoints} hasChanges={hasChanges} />
         <SaveButton
           onClick={handleSave}
-          disabled={isSaving || !hasChanges}
+          disabled={isSaving || !hasChanges || remainingPoints > 0}
           isSaving={isSaving}
+          hasChanges={hasChanges}
+          remainingPoints={remainingPoints}
         />
       </RightSection>
     </ProfileContainer>

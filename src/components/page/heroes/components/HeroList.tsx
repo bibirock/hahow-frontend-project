@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 17:13:44
+ * @LastEditTime: 2025-12-25 23:36:21
  * @Description: Hero List component
  */
 
@@ -15,25 +15,27 @@ import HeroCard from "./HeroCard";
 // types
 import { IResponseDto } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
 
+// design tokens
+import { colors } from "@/styles/tokens";
+
 // #region Style
 
 const ListContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.5rem;
-  justify-content: flex-start;
-  max-width: fit-content;
+  width: 100%;
+  max-width: 872px;
   margin: 0 auto;
-`;
-
-const CardWrapper = styled.div`
-  /* 大螢幕：固定寬度，由左到右排列 */
-  width: 200px;
 
   /* 小螢幕：每行1個 */
   @media (max-width: 510px) {
-    width: 100%;
+    grid-template-columns: 1fr;
   }
+`;
+
+const CardWrapper = styled.div`
+  width: 100%;
 `;
 
 // #endregion
@@ -46,8 +48,14 @@ interface IHeroListProps {
 export default function HeroList({ heroes, activeHeroId }: IHeroListProps) {
   if (heroes.length === 0) {
     return (
-      <div style={{ textAlign: "center", padding: "2rem", color: "#6b7280" }}>
-        No heroes found
+      <div
+        style={{
+          textAlign: "center",
+          padding: "2rem",
+          color: colors.text.secondary,
+        }}
+      >
+        資料異常，請稍候再試
       </div>
     );
   }

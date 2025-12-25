@@ -1,6 +1,9 @@
 "use client";
 import styled, { keyframes } from "styled-components";
 
+// design tokens
+import { colors } from "@/styles/tokens";
+
 // #region Style
 
 const shimmer = keyframes`
@@ -16,9 +19,9 @@ const Container = styled.div`
   max-width: 872px;
   margin: 0 auto;
   padding: 2.5rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 4px;
-  background-color: #fff;
+  border: 2px solid ${colors.border.primary};
+  border-radius: 8px;
+  background-color: ${colors.background.primary};
   display: flex;
   gap: 3rem;
 
@@ -52,7 +55,12 @@ const SkeletonPulse = styled.div`
   display: block;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+  background: linear-gradient(
+    to right,
+    ${colors.background.hover} 8%,
+    ${colors.background.active} 18%,
+    ${colors.background.hover} 33%
+  );
   background-size: 800px 104px;
   animation: ${shimmer} 1.2s linear infinite forwards;
 `;
@@ -60,25 +68,25 @@ const SkeletonPulse = styled.div`
 const SkeletonRow = styled.div`
   height: 60px;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
-  background-color: #f6f7f8;
+  background-color: ${colors.background.hover};
 `;
 
 const SkeletonPoints = styled.div`
   height: 100px;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
-  background-color: #f6f7f8;
+  background-color: ${colors.background.hover};
 `;
 
 const SkeletonButton = styled.div`
   height: 50px;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
-  background-color: #f6f7f8;
+  background-color: ${colors.background.hover};
 `;
 
 // #endregion

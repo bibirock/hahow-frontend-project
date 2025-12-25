@@ -2,13 +2,27 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 19:25:32
+ * @LastEditTime: 2025-12-25 23:29:07
  * @Description: Points display component
  */
 
 import styled from "styled-components";
 
+// design tokens
+import { colors } from "@/styles/tokens";
+
 // #region Style
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    align-items: stretch;
+  }
+`;
 
 const PointsSection = styled.div`
   display: flex;
@@ -19,26 +33,60 @@ const PointsSection = styled.div`
 const PointsLabel = styled.span`
   font-size: 1rem;
   font-weight: 500;
+  color: ${colors.text.primary};
 `;
 
 const PointsValue = styled.span`
   font-size: 1.25rem;
   font-weight: 600;
+  color: ${colors.text.primary};
+`;
+
+const WarningMessage = styled.p`
+  font-size: 0.875rem;
+  color: ${colors.text.warning};
+  margin: 0;
+  text-align: right;
+
+  @media (max-width: 768px) {
+    text-align: left;
+  }
+`;
+
+const HintMessage = styled.p`
+  font-size: 0.875rem;
+  color: ${colors.text.tertiary};
+  margin: 0;
+  text-align: right;
+
+  @media (max-width: 768px) {
+    text-align: left;
+  }
 `;
 
 // #endregion
 
 interface IPointsDisplayProps {
   remainingPoints: number;
+  hasChanges: boolean;
 }
 
 export default function PointsDisplay({
   remainingPoints,
+  hasChanges,
 }: IPointsDisplayProps) {
   return (
-    <PointsSection>
-      <PointsLabel>剩餘點數:</PointsLabel>
-      <PointsValue>{remainingPoints}</PointsValue>
-    </PointsSection>
+    <Container>
+      <PointsSection>
+        <PointsLabel>剩餘點數:</PointsLabel>
+        <PointsValue>{remainingPoints}</PointsValue>
+      </PointsSection>
+      {remainingPoints > 0 && (
+        <WarningMessage>必須使用完剩餘點數才能儲存</WarningMessage>
+      )}
+      {!hasChanges && remainingPoints === 0 && (
+        <HintMessage>尚未進行任何變更</HintMessage>
+      )}
+    </Container>
   );
 }
