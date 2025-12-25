@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 16:58:46
+ * @LastEditTime: 2025-12-25 23:35:08
  * @Description: Hero profile page with server-side data fetching
  */
 
@@ -72,7 +72,7 @@ export default async function HeroProfilePage({
     const errorMessage = (error as any)?.message || "Unknown error occurred";
     return (
       <div style={{ textAlign: "center", padding: "2rem", color: "#ef4444" }}>
-        <h3>Failed to load hero profile</h3>
+        <h3>載入失敗，請稍後再試</h3>
         <p>{errorMessage}</p>
       </div>
     );
@@ -84,7 +84,9 @@ export default async function HeroProfilePage({
 
   if (!heroDetail || !profile) {
     return (
-      <div style={{ textAlign: "center", padding: "2rem" }}>Hero not found</div>
+      <div style={{ textAlign: "center", padding: "2rem" }}>
+        找不到 Hero 資料
+      </div>
     );
   }
 

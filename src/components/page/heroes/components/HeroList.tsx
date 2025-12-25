@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 17:13:44
+ * @LastEditTime: 2025-12-25 23:36:21
  * @Description: Hero List component
  */
 
@@ -46,7 +46,7 @@ export default function HeroList({ heroes, activeHeroId }: IHeroListProps) {
   if (heroes.length === 0) {
     return (
       <div style={{ textAlign: "center", padding: "2rem", color: "#6b7280" }}>
-        No heroes found
+        資料異常，請稍候再試
       </div>
     );
   }
