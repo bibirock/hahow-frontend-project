@@ -46,17 +46,6 @@ const StyledSaveButton = styled.button`
   }
 `;
 
-const HintMessage = styled.p`
-  font-size: 0.875rem;
-  color: #9ca3af;
-  margin: 0;
-  text-align: right;
-
-  @media (max-width: 768px) {
-    text-align: left;
-  }
-`;
-
 // #endregion
 
 interface ISaveButtonProps {
@@ -71,24 +60,12 @@ export default function SaveButton({
   onClick,
   disabled,
   isSaving,
-  hasChanges,
-  remainingPoints,
 }: ISaveButtonProps) {
-  const getHintMessage = () => {
-    if (isSaving) return null;
-    if (!hasChanges) return "尚未進行任何變更";
-    if (remainingPoints > 0) return null; // 這個提示已在 PointsDisplay 顯示
-    return null;
-  };
-
-  const hintMessage = getHintMessage();
-
   return (
     <Container>
       <StyledSaveButton onClick={onClick} disabled={disabled}>
         {isSaving ? "儲存中..." : "儲存"}
       </StyledSaveButton>
-      {hintMessage && <HintMessage>{hintMessage}</HintMessage>}
     </Container>
   );
 }

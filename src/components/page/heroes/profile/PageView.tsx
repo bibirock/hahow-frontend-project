@@ -170,7 +170,7 @@ export default function HeroProfileView({
       </LeftSection>
 
       <RightSection>
-        <PointsDisplay remainingPoints={remainingPoints} />
+        <PointsDisplay remainingPoints={remainingPoints} hasChanges={hasChanges} />
         <SaveButton
           onClick={handleSave}
           disabled={isSaving || !hasChanges || remainingPoints > 0}

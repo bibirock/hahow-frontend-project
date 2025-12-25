@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 19:25:32
+ * @LastEditTime: 2025-12-25 23:29:07
  * @Description: Points display component
  */
 
@@ -41,18 +41,36 @@ const PointsValue = styled.span`
 
 const WarningMessage = styled.p`
   font-size: 0.875rem;
-  color: #dc2626;
+  color: orange;
   margin: 0;
+  text-align: right;
+
+  @media (max-width: 768px) {
+    text-align: left;
+  }
+`;
+
+const HintMessage = styled.p`
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin: 0;
+  text-align: right;
+
+  @media (max-width: 768px) {
+    text-align: left;
+  }
 `;
 
 // #endregion
 
 interface IPointsDisplayProps {
   remainingPoints: number;
+  hasChanges: boolean;
 }
 
 export default function PointsDisplay({
   remainingPoints,
+  hasChanges,
 }: IPointsDisplayProps) {
   return (
     <Container>
@@ -62,6 +80,9 @@ export default function PointsDisplay({
       </PointsSection>
       {remainingPoints > 0 && (
         <WarningMessage>必須使用完剩餘點數才能儲存</WarningMessage>
+      )}
+      {!hasChanges && remainingPoints === 0 && (
+        <HintMessage>尚未進行任何變更</HintMessage>
       )}
     </Container>
   );
