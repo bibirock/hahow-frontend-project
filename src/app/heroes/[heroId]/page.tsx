@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 14:37:54
+ * @LastEditTime: 2025-12-25 16:58:46
  * @Description: Hero profile page with server-side data fetching
  */
 
@@ -68,7 +68,6 @@ export default async function HeroProfilePage({
   try {
     data = await Promise.all([getHeroDetail(heroId), getHeroProfile(heroId)]);
   } catch (error: unknown) {
-    console.error("Error fetching hero profile:", error);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const errorMessage = (error as any)?.message || "Unknown error occurred";
     return (

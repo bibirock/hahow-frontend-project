@@ -8,6 +8,8 @@
 
 import styled from "styled-components";
 
+// #region Style
+
 const StyledSaveButton = styled.button`
   padding: 0.875rem 3rem;
   font-size: 1rem;
@@ -32,6 +34,8 @@ const StyledSaveButton = styled.button`
     background-color: #9ca3af;
   }
 `;
+
+// #endregion
 
 interface ISaveButtonProps {
   onClick: () => void;

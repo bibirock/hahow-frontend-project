@@ -2,8 +2,8 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 17:08:56
- * @Description: Client-side endpoint to get single hero detail
+ * @LastEditTime: 2025-12-25 17:10:29
+ * @Description:
  */
 
 // types

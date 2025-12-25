@@ -2,14 +2,14 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 17:07:54
- * @Description: Client-side endpoint to patch hero profile
+ * @LastEditTime: 2025-12-25 17:19:17
+ * @Description:
  */
 
 // types
 import {
   TPatchResponse,
-  IPatchProfilePayload,
+  IResponseDto,
 } from "@/app/api/hahow/heroes/[heroId]/profile/dto";
 
 // utils
@@ -17,7 +17,7 @@ import { createErrorResponse } from "@/utils/server/handleResult";
 
 export default async function patchHeroProfile(
   heroId: string,
-  payload: IPatchProfilePayload
+  payload: IResponseDto
 ): Promise<TPatchResponse> {
   if (heroId === "" || !heroId) {
     return createErrorResponse();

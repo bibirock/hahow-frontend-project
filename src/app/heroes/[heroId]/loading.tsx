@@ -1,6 +1,7 @@
 "use client";
-
 import styled, { keyframes } from "styled-components";
+
+// #region Style
 
 const shimmer = keyframes`
   0% {
@@ -79,6 +80,8 @@ const SkeletonButton = styled.div`
   overflow: hidden;
   background-color: #f6f7f8;
 `;
+
+// #endregion
 
 export default function Loading() {
   return (

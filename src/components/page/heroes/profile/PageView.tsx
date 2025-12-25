@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 15:33:41
+ * @LastEditTime: 2025-12-25 17:14:32
  * @Description: Hero profile view component with ability controls
  */
 
@@ -19,11 +19,13 @@ import PointsDisplay from "./components/PointsDisplay";
 import SaveButton from "./components/SaveButton";
 
 // types
-import { IHeroProfile } from "@/app/api/hahow/heroes/[heroId]/profile/dto";
-import { IHeroDetail } from "@/lib/api-server/endpoints/hahow-api/heroes/getHeroDetail";
+import { IResponseDto as HeroProfile } from "@/app/api/hahow/heroes/[heroId]/profile/dto";
+import { IResponseDto as HeroDetail } from "@/lib/api-server/endpoints/hahow-api/heroes/getHeroDetail";
 
 // api
 import { NextHahowApi } from "@/lib/api-client/endpoints";
+
+// #region Style
 
 const ProfileContainer = styled.div`
   max-width: 872px;
@@ -60,10 +62,12 @@ const RightSection = styled.div`
   }
 `;
 
+// #endregion
+
 interface IHeroProfileViewProps {
   heroId: string;
-  hero: IHeroDetail;
-  profile: IHeroProfile;
+  hero: HeroDetail;
+  profile: HeroProfile;
 }
 
 type AbilityKey = "str" | "int" | "agi" | "luk";
@@ -80,8 +84,8 @@ export default function HeroProfileView({
   heroId,
   profile,
 }: IHeroProfileViewProps) {
-  const [initialProfile, setInitialProfile] = useState<IHeroProfile>(profile);
-  const [abilities, setAbilities] = useState<IHeroProfile>(profile);
+  const [initialProfile, setInitialProfile] = useState<HeroProfile>(profile);
+  const [abilities, setAbilities] = useState<HeroProfile>(profile);
   const [isSaving, setIsSaving] = useState(false);
 
   // 初始化能力值總和
@@ -141,7 +145,7 @@ export default function HeroProfileView({
         abilities
       );
 
-      if (response.error) {
+      if (response?.error) {
         toast.error(response.error.message || "儲存失敗，請稍後再試");
       } else {
         toast.success("儲存成功！");

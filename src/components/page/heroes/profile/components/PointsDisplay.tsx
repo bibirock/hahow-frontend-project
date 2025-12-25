@@ -8,6 +8,8 @@
 
 import styled from "styled-components";
 
+// #region Style
+
 const PointsSection = styled.div`
   display: flex;
   align-items: center;
@@ -23,6 +25,8 @@ const PointsValue = styled.span`
   font-size: 1.25rem;
   font-weight: 600;
 `;
+
+// #endregion
 
 interface IPointsDisplayProps {
   remainingPoints: number;

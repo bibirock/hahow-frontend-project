@@ -34,11 +34,8 @@ export class AxiosConfig {
   // 指數退避延遲：1秒、3秒、5秒
   private readonly NETWORK_ERROR_RETRY_DELAYS = [1000, 3000, 5000];
 
-  constructor(
-    private axiosInstance: AxiosInstance,
-    hahowWebUrl: string = process.env.HAHOW_URL!
-  ) {
-    this.errorHandler = new AxiosErrorHandler(hahowWebUrl);
+  constructor(private axiosInstance: AxiosInstance) {
+    this.errorHandler = new AxiosErrorHandler();
     this.setupInterceptors();
   }
 
