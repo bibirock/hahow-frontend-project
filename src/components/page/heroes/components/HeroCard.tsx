@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 15:41:33
+ * @LastEditTime: 2025-12-25 17:02:34
  * @Description: Hero Card component
  */
 
@@ -12,6 +12,8 @@ import styled from "styled-components";
 
 // types
 import { IHeroesItem } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
+
+// #region Style
 
 const StyledCard = styled(Link)<{ $isActive?: boolean }>`
   display: flex;
@@ -53,6 +55,8 @@ const HeroName = styled.h2`
   font-weight: 600;
   margin: 0;
 `;
+
+// #endregion
 
 interface IHeroCardProps {
   hero: IHeroesItem;

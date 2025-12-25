@@ -15,6 +15,8 @@ import HeroCard from "./HeroCard";
 // types
 import { IHeroesItem } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
 
+// #region Style
+
 const ListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -33,6 +35,8 @@ const CardWrapper = styled.div`
     width: 100%;
   }
 `;
+
+// #endregion
 
 interface IHeroListProps {
   heroes: IHeroesItem[];

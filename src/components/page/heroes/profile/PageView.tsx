@@ -25,6 +25,8 @@ import { IHeroDetail } from "@/lib/api-server/endpoints/hahow-api/heroes/getHero
 // api
 import { NextHahowApi } from "@/lib/api-client/endpoints";
 
+// #region Style
+
 const ProfileContainer = styled.div`
   max-width: 872px;
   margin: 0 auto;
@@ -59,6 +61,8 @@ const RightSection = styled.div`
     align-items: stretch;
   }
 `;
+
+// #endregion
 
 interface IHeroProfileViewProps {
   heroId: string;

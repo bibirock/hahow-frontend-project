@@ -8,6 +8,8 @@
 
 import styled from "styled-components";
 
+// #region Style
+
 const AbilityRow = styled.div`
   display: flex;
   align-items: center;
@@ -63,6 +65,8 @@ const AbilityValue = styled.span`
   min-width: 30px;
   text-align: center;
 `;
+
+// #endregion
 
 interface IAbilityControlProps {
   label: string;

@@ -18,6 +18,8 @@ import HeroList from "./components/HeroList";
 // types
 import { IHeroesItem } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
 
+// #region Style
+
 const Container = styled.div`
   width: 100%;
   max-width: 1400px;
@@ -32,6 +34,8 @@ const HeroListSection = styled.div`
 const ContentSection = styled.div`
   margin-top: 2rem;
 `;
+
+// #endregion
 
 interface IHeroesLayoutProps {
   heroes: IHeroesItem[];
