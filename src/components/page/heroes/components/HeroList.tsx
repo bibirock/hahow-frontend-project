@@ -18,22 +18,21 @@ import { IResponseDto } from "@/lib/api-server/endpoints/hahow-api/heroes/listHe
 // #region Style
 
 const ListContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.5rem;
-  justify-content: flex-start;
-  max-width: fit-content;
+  width: 100%;
+  max-width: 872px;
   margin: 0 auto;
-`;
-
-const CardWrapper = styled.div`
-  /* 大螢幕：固定寬度，由左到右排列 */
-  width: 200px;
 
   /* 小螢幕：每行1個 */
   @media (max-width: 510px) {
-    width: 100%;
+    grid-template-columns: 1fr;
   }
+`;
+
+const CardWrapper = styled.div`
+  width: 100%;
 `;
 
 // #endregion
