@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 19:25:37
+ * @LastEditTime: 2025-12-25 23:24:11
  * @Description: Save button component
  */
 
@@ -28,7 +28,7 @@ const StyledSaveButton = styled.button`
   color: white;
   background-color: #2d2d2d;
   border: 2px solid white;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
 

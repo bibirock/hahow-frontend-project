@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 18:12:39
+ * @LastEditTime: 2025-12-25 23:24:06
  * @Description: Ability control component with increment/decrement buttons
  */
 
@@ -38,7 +38,7 @@ const ControlButton = styled.button`
   width: 50px;
   height: 50px;
   border: 2px solid white;
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: #2d2d2d;
   color: white;
   font-size: 1.5rem;

@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 17:14:32
+ * @LastEditTime: 2025-12-25 23:24:03
  * @Description: Hero profile view component with ability controls
  */
 
@@ -32,7 +32,7 @@ const ProfileContainer = styled.div`
   margin: 0 auto;
   padding: 2.5rem;
   border: 2px solid white;
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: #2d2d2d;
   color: white;
   display: flex;

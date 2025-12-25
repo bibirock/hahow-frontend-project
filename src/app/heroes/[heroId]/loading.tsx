@@ -17,7 +17,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 2.5rem;
   border: 2px solid white;
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: #2d2d2d;
   display: flex;
   gap: 3rem;
@@ -60,7 +60,7 @@ const SkeletonPulse = styled.div`
 const SkeletonRow = styled.div`
   height: 60px;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
   background-color: #3d3d3d;
 `;
@@ -68,7 +68,7 @@ const SkeletonRow = styled.div`
 const SkeletonPoints = styled.div`
   height: 100px;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
   background-color: #3d3d3d;
 `;
@@ -76,7 +76,7 @@ const SkeletonPoints = styled.div`
 const SkeletonButton = styled.div`
   height: 50px;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
   background-color: #3d3d3d;
 `;
