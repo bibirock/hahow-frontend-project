@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-24 19:39:12
+ * @LastEditTime: 2025-12-25 18:12:39
  * @Description: Ability control component with increment/decrement buttons
  */
 
@@ -23,7 +23,6 @@ const AbilityRow = styled.div`
 `;
 
 const AbilityLabel = styled.span`
-  font-weight: 600;
   font-size: 1.125rem;
   min-width: 60px;
 `;
@@ -41,7 +40,6 @@ const ControlButton = styled.button`
   border-radius: 4px;
   background-color: #fff;
   font-size: 1.5rem;
-  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
 
