@@ -25,16 +25,19 @@ import { IResponseDto as HeroDetail } from "@/lib/api-server/endpoints/hahow-api
 // api
 import { NextHahowApi } from "@/lib/api-client/endpoints";
 
+// design tokens
+import { colors } from "@/styles/tokens";
+
 // #region Style
 
 const ProfileContainer = styled.div`
   max-width: 872px;
   margin: 0 auto;
   padding: 2.5rem;
-  border: 2px solid white;
+  border: 2px solid ${colors.border.primary};
   border-radius: 8px;
-  background-color: #2d2d2d;
-  color: white;
+  background-color: ${colors.background.primary};
+  color: ${colors.text.primary};
   display: flex;
   gap: 3rem;
 

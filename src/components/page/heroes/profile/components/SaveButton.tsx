@@ -8,6 +8,9 @@
 
 import styled from "styled-components";
 
+// design tokens
+import { colors } from "@/styles/tokens";
+
 // #region Style
 
 const Container = styled.div`
@@ -25,15 +28,15 @@ const StyledSaveButton = styled.button`
   padding: 0.875rem 3rem;
   font-size: 1rem;
   font-weight: 500;
-  color: white;
-  background-color: #2d2d2d;
-  border: 2px solid white;
+  color: ${colors.text.primary};
+  background-color: ${colors.background.primary};
+  border: 2px solid ${colors.border.primary};
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover:not(:disabled) {
-    background-color: #3d3d3d;
+    background-color: ${colors.background.hover};
   }
 
   &:disabled {
@@ -42,7 +45,7 @@ const StyledSaveButton = styled.button`
   }
 
   &:active:not(:disabled) {
-    background-color: #4d4d4d;
+    background-color: ${colors.background.active};
   }
 `;
 

@@ -8,6 +8,9 @@
 
 import styled from "styled-components";
 
+// design tokens
+import { colors } from "@/styles/tokens";
+
 // #region Style
 
 const Container = styled.div`
@@ -30,18 +33,18 @@ const PointsSection = styled.div`
 const PointsLabel = styled.span`
   font-size: 1rem;
   font-weight: 500;
-  color: white;
+  color: ${colors.text.primary};
 `;
 
 const PointsValue = styled.span`
   font-size: 1.25rem;
   font-weight: 600;
-  color: white;
+  color: ${colors.text.primary};
 `;
 
 const WarningMessage = styled.p`
   font-size: 0.875rem;
-  color: orange;
+  color: ${colors.text.warning};
   margin: 0;
   text-align: right;
 
@@ -52,7 +55,7 @@ const WarningMessage = styled.p`
 
 const HintMessage = styled.p`
   font-size: 0.875rem;
-  color: #9ca3af;
+  color: ${colors.text.tertiary};
   margin: 0;
   text-align: right;
 

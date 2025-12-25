@@ -7,6 +7,7 @@
 - [快速開始](#快速開始)
 - [專案架構](#專案架構)
 - [設計理念](#設計理念)
+- [Design Tokens 設計系統](#design-tokens-設計系統)
 - [第三方套件說明](#第三方套件說明)
 - [註解原則](#註解原則)
 - [開發過程遇到的問題與解決方案](#開發過程遇到的問題與解決方案)
@@ -256,6 +257,22 @@ Client (接收標準化錯誤回應)
 
 ---
 
+## Design Tokens 設計系統
+
+### 概述
+
+本專案採用 **Design Tokens** 集中管理所有設計相關的常數（色彩），確保整個專案的設計一致性與可維護性。
+
+### 色彩系統
+
+#### 檔案位置
+
+- **TypeScript Tokens**: `src/styles/tokens/colors.ts`
+- **CSS 變數**: `src/app/globals.css`
+- **完整文件**: [src/styles/tokens/README.md](src/styles/tokens/README.md)
+
+---
+
 ## 第三方套件說明
 
 ### 核心框架
@@ -392,7 +409,7 @@ const getHeroProfile = cache((heroId: string) =>
 
 ## 專案特色說明
 
-1. **SSR 技術** :讓 HTML 不再是 js 運作時動態掛載，透過伺服器渲染加強 SEO 分數，可查看頁面原始碼來檢視
+1. **SSR 技術**: 讓 HTML 不再是 js 運作時動態掛載，透過伺服器渲染加強 SEO 分數，可查看頁面原始碼來檢視
 2. **BFF 架構**: 提升安全性、效能與 API 整合能力
 3. **雙層 API 設計**: Client 使用 Fetch，Server 使用 Axios，各司其職
 4. **統一回應格式**: 簡化前端錯誤處理邏輯
@@ -400,3 +417,4 @@ const getHeroProfile = cache((heroId: string) =>
 6. **完善的錯誤處理**: 分層處理，避免重複記錄，方便追蹤
 7. **指數型退避重試**: 提升 API 呼叫穩定性
 8. **CloudWatch 整合**: 雲端環境下可透過 CloudWatch 查詢 logs
+9. **Design Tokens 設計系統**: 集中管理色彩等設計常數，確保一致性與可維護性

@@ -8,6 +8,9 @@
 
 import styled from "styled-components";
 
+// design tokens
+import { colors } from "@/styles/tokens";
+
 // #region Style
 
 const AbilityRow = styled.div`
@@ -25,7 +28,7 @@ const AbilityRow = styled.div`
 const AbilityLabel = styled.span`
   font-size: 1.125rem;
   min-width: 60px;
-  color: white;
+  color: ${colors.text.primary};
 `;
 
 const AbilityControls = styled.div`
@@ -37,16 +40,16 @@ const AbilityControls = styled.div`
 const ControlButton = styled.button`
   width: 50px;
   height: 50px;
-  border: 2px solid white;
+  border: 2px solid ${colors.border.primary};
   border-radius: 8px;
-  background-color: #2d2d2d;
-  color: white;
+  background-color: ${colors.background.primary};
+  color: ${colors.text.primary};
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover:not(:disabled) {
-    background-color: #3d3d3d;
+    background-color: ${colors.background.hover};
   }
 
   &:disabled {
@@ -55,7 +58,7 @@ const ControlButton = styled.button`
   }
 
   &:active:not(:disabled) {
-    background-color: #4d4d4d;
+    background-color: ${colors.background.active};
   }
 `;
 
@@ -64,7 +67,7 @@ const AbilityValue = styled.span`
   font-weight: 500;
   min-width: 30px;
   text-align: center;
-  color: white;
+  color: ${colors.text.primary};
 `;
 
 // #endregion

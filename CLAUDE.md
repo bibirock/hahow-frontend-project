@@ -374,6 +374,89 @@ These patterns can be implemented in the existing `AxiosConfig` class without af
   - `HAHOW_URL`: Base URL for Hahow API
 - **Styling**: TailwindCSS v4 + styled-components
 
+## Design Tokens
+
+This project uses a centralized Design Token system for managing all design-related constants (colors, typography, spacing, etc.).
+
+### Color System
+
+All colors are defined in `src/styles/tokens/colors.ts` and exported as a TypeScript object. The project uses a **dark theme** color scheme.
+
+#### Usage in TypeScript/React Components
+
+```typescript
+import { colors } from "@/styles/tokens";
+
+const Button = styled.button`
+  background-color: ${colors.background.primary};
+  color: ${colors.text.primary};
+  border: 2px solid ${colors.border.primary};
+
+  &:hover {
+    background-color: ${colors.background.hover};
+  }
+`;
+```
+
+#### Usage in CSS Files
+
+CSS variables are defined in `src/app/globals.css`:
+
+```css
+.my-element {
+  background-color: var(--color-background-primary);
+  color: var(--color-text-primary);
+}
+```
+
+#### Color Categories
+
+- **base**: Basic colors (white, black)
+- **gray**: Grayscale system for backgrounds and interactive states (900, 800, 700, 500, 400)
+- **brand**: Brand colors (primary orange #ff6600)
+- **semantic**: Purpose-based colors (error, warning)
+- **shadow**: Shadow colors for box-shadow effects
+- **text**: Text colors (primary, secondary, tertiary, error, warning)
+- **background**: Background colors (primary, hover, active)
+- **border**: Border colors (primary, selected)
+
+#### Best Practices
+
+**DO:**
+
+- ✅ Use semantic color names (e.g., `colors.text.error` instead of `colors.semantic.error`)
+- ✅ Use consistent color tokens across all components
+- ✅ Avoid hardcoding color values in components
+
+**DON'T:**
+
+- ❌ Don't use hex color codes directly in components
+- ❌ Don't mix CSS variables and TypeScript tokens (choose one approach)
+- ❌ Don't use different tokens for the same purpose
+
+#### Adding New Colors
+
+1. Add the color to `src/styles/tokens/colors.ts`:
+
+```typescript
+export const colors = {
+  // ... existing colors
+  success: {
+    primary: "#10b981",
+  },
+} as const;
+```
+
+2. Add corresponding CSS variable to `src/app/globals.css`:
+
+```css
+:root {
+  --color-success-primary: #10b981;
+}
+```
+
+For detailed documentation, see [src/styles/tokens/README.md](src/styles/tokens/README.md).
+
 ## TypeScript
 
 - Target: ES2017

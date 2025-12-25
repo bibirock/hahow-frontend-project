@@ -14,6 +14,9 @@ import { cache } from "react";
 import { HahowApi } from "@/lib/api-server/endpoints";
 import PageView from "@/components/page/heroes/profile/PageView";
 
+// design tokens
+import { colors } from "@/styles/tokens";
+
 // 使用快取保留重複 id 會取用快取的結果，減少重複請求
 const getHeroDetail = cache((heroId: string) =>
   HahowApi.Heroes.GetHeroDetailServer(heroId)
@@ -71,7 +74,13 @@ export default async function HeroProfilePage({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const errorMessage = (error as any)?.message || "Unknown error occurred";
     return (
-      <div style={{ textAlign: "center", padding: "2rem", color: "#ef4444" }}>
+      <div
+        style={{
+          textAlign: "center",
+          padding: "2rem",
+          color: colors.text.error,
+        }}
+      >
         <h3>載入失敗，請稍後再試</h3>
         <p>{errorMessage}</p>
       </div>

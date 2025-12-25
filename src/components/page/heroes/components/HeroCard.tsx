@@ -13,25 +13,30 @@ import styled from "styled-components";
 // types
 import { IResponseDto } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
 
+// design tokens
+import { colors } from "@/styles/tokens";
+
 // #region Style
 
 const StyledCard = styled(Link)<{ $isActive?: boolean }>`
   display: flex;
   flex-direction: column;
   border: ${(props) =>
-    props.$isActive ? "3px solid #ff6600" : "1px solid white"};
+    props.$isActive
+      ? `3px solid ${colors.border.selected}`
+      : `1px solid ${colors.border.primary}`};
   border-radius: 8px;
   overflow: hidden;
   box-shadow: ${(props) =>
     props.$isActive
-      ? "0 4px 6px -1px rgba(255, 102, 0, 0.3)"
-      : "0 1px 3px 0 rgba(255, 255, 255, 0.1)"};
+      ? `0 4px 6px -1px ${colors.shadow.primary}`
+      : `0 1px 3px 0 ${colors.shadow.light}`};
   transform: ${(props) => (props.$isActive ? "scale(1.03)" : "scale(1)")};
   transition: all 0.3s ease;
   text-align: center;
 
   &:hover {
-    box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 15px -3px ${colors.shadow.medium};
   }
 `;
 
@@ -56,7 +61,7 @@ const HeroName = styled.h2`
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
-  color: white;
+  color: ${colors.text.primary};
 `;
 
 // #endregion

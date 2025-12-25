@@ -15,6 +15,9 @@ import HeroCard from "./HeroCard";
 // types
 import { IResponseDto } from "@/lib/api-server/endpoints/hahow-api/heroes/listHeroes";
 
+// design tokens
+import { colors } from "@/styles/tokens";
+
 // #region Style
 
 const ListContainer = styled.div`
@@ -45,7 +48,13 @@ interface IHeroListProps {
 export default function HeroList({ heroes, activeHeroId }: IHeroListProps) {
   if (heroes.length === 0) {
     return (
-      <div style={{ textAlign: "center", padding: "2rem", color: "#6b7280" }}>
+      <div
+        style={{
+          textAlign: "center",
+          padding: "2rem",
+          color: colors.text.secondary,
+        }}
+      >
         資料異常，請稍候再試
       </div>
     );
