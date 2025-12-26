@@ -165,7 +165,7 @@ src/
 
 - 避免真實後端 API 路徑暴露在前端程式碼中
 - 在雲端環境下可設定只允許前端專案的 server-side 呼叫，例如限制後端 ECS 接收的來源
-- 可在 BFF 層實作 API Key、Token 管理，避免敏感資訊洩漏，使用 http-only 餵給前端，防止 XSS 攻擊，前端在呼叫 API 時會自動帶上 cookie
+- 可在 BFF 層實作 API Key、Token 管理，避免敏感資訊洩漏，使用 http-only 餵給前端，防止 XSS 攻擊，前端再呼叫 API 時會自動帶上 cookie
 
 ##### 效能優化
 
@@ -395,7 +395,7 @@ const getHeroProfile = cache((heroId: string) =>
 
 **解決方案**:
 
-- 使用指數退避呼叫請求方法，並配合錯誤提示，請使用者在操作一次
+- 使用指數退避呼叫請求方法，並配合錯誤提示，請使用者再操作一次
 
 ## 使用的 AI 工具與情境
 
