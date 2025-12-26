@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 23:24:06
+ * @LastEditTime: 2025-12-26 10:58:47
  * @Description: Ability control component with increment/decrement buttons
  */
 
@@ -94,19 +94,19 @@ export default function AbilityControl({
       <AbilityLabel>{label}</AbilityLabel>
       <AbilityControls>
         <ControlButton
-          onClick={onIncrement}
-          disabled={!canIncrement}
-          aria-label={`Increment ${label}`}
-        >
-          +
-        </ControlButton>
-        <AbilityValue>{value}</AbilityValue>
-        <ControlButton
           onClick={onDecrement}
           disabled={!canDecrement}
           aria-label={`Decrement ${label}`}
         >
           -
+        </ControlButton>
+        <AbilityValue>{value}</AbilityValue>
+        <ControlButton
+          onClick={onIncrement}
+          disabled={!canIncrement}
+          aria-label={`Increment ${label}`}
+        >
+          +
         </ControlButton>
       </AbilityControls>
     </AbilityRow>
