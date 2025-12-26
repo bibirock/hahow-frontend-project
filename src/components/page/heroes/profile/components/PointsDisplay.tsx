@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-24
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 23:29:07
+ * @LastEditTime: 2025-12-26 11:43:12
  * @Description: Points display component
  */
 
@@ -82,10 +82,14 @@ export default function PointsDisplay({
         <PointsValue>{remainingPoints}</PointsValue>
       </PointsSection>
       {remainingPoints > 0 && (
-        <WarningMessage>必須使用完剩餘點數才能儲存</WarningMessage>
+        <WarningMessage>
+          需使用完剩餘點數才能儲存，否則 Hero 會哭哭呦！
+        </WarningMessage>
       )}
       {!hasChanges && remainingPoints === 0 && (
-        <HintMessage>尚未進行任何變更</HintMessage>
+        <HintMessage>
+          Hero 的能力必須平均分配，您需要移除其他點數才能進行分配與儲存。
+        </HintMessage>
       )}
     </Container>
   );
