@@ -2,7 +2,7 @@
  * @Author: JoeChen
  * @Date: 2025-12-23 21:08:18
  * @LastEditors: JoeChen bibirock0104@gmail.com
- * @LastEditTime: 2025-12-25 14:37:07
+ * @LastEditTime: 2025-12-26 12:09:27
  * @Description: 這個設定檔分別設置了 Axios 攔截器，及實現了錯誤處理機制
  * 錯誤處理機制，使用的是退避指數策略，讓 API 自動重試
  * 1. 後端錯誤，重試 5 次
@@ -29,8 +29,8 @@ interface IRetryConfig extends InternalAxiosRequestConfig {
 export class AxiosConfig {
   private errorHandler: AxiosErrorHandler;
 
-  // 錯誤重試延遲時間：1秒、3秒、5秒、7秒、9秒
-  private readonly BACKEND_ERROR_RETRY_DELAYS = [1000, 3000, 5000, 7000, 9000];
+  // 錯誤重試延遲時間：1秒、2秒、3秒、4秒、5秒
+  private readonly BACKEND_ERROR_RETRY_DELAYS = [1000, 2000, 3000, 4000, 5000];
   // 指數退避延遲：1秒、3秒、5秒
   private readonly NETWORK_ERROR_RETRY_DELAYS = [1000, 3000, 5000];
 
