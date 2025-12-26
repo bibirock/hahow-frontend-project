@@ -1,17 +1,24 @@
 {
   "name": "hahow-frontend-project",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
-    "dev": "next dev",
+    "start:dev": "NODE_OPTIONS='--no-deprecation' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "axios": "^1.13.2",
     "next": "16.1.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-toastify": "^11.0.5",
+    "styled-components": "^6.1.19",
+    "swr": "^2.3.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
