@@ -1,4 +1,3 @@
-# Hahow Frontend Project
 
 一個使用 Next.js 16、React 19 和 TypeScript 構建的現代化前端專案，實現了 BFF (Backend For Frontend) 架構的雙層 API 設計模式。
 
